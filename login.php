@@ -1,13 +1,7 @@
-<?php
-//Affichage des messages d'erreurs si les identifiants sont incorrects
-if (isset($_GET['error'])): ?>
-    <small class="alert alert-danger text-center">
-        Email ou mot de passe incorrect.
-    </small>
-<?php endif; 
-// login.php : Page de connexion Bootstrap moderne et responsive
-// Cette pae permet aux utilisateur de ce connecter à leurs compte
-?>
+ <?php 
+ // login.php : Page de connexion Bootstrap moderne et responsive
+ // Cette pae permet aux utilisateur de ce connecter à leurs compte
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -85,6 +79,12 @@ if (isset($_GET['error'])): ?>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe" required>
                 </div>
             </div>
+
+            <!--Affichage des messages d'erreurs si les identifiants sont incorrects-->
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span class="alert alert-danger small"> <?php if (isset($_GET['error'])){echo"Email ou mot de passe invalide";}else{echo "";} ?> </span>
+            </div>    
+            
             <div class="mb-3 d-flex justify-content-between align-items-center">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">

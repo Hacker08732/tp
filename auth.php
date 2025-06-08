@@ -4,7 +4,7 @@ session_start();
 include("includes/database.php");
 
 //message d'erreur a mettre si email ou mot de passe n'est pas correct
-$error = "mot de passe ou email incorrect!";
+
 
 //Vérifier si l'email et le mot de passe ont été bien envoyé via le formulaire
 if( isset($_POST['email']) && isset($_POST['password'] ) )
@@ -24,9 +24,9 @@ if( isset($_POST['email']) && isset($_POST['password'] ) )
             //vérifie l'existence de l'utilisateur
             if( !$user )
             {
-                header('Location:login.php?error=');
+                header('Location:login.php?error');
                 exit();
-            }
+            }else{
                 //verifie si le mot de passe enter dans le formulaire corresponds à celui de la base de donnée
                 if( password_verify( $password, $user['mot_de_passe']) )
                 {
@@ -43,9 +43,10 @@ if( isset($_POST['email']) && isset($_POST['password'] ) )
                     exit();
                 } else {
                     //sinon l'utilisateur est rediriger vers le login  
-                 header('Location:login.php?error=$error');
+                 header('Location:login.php?error');
                     exit();
                 }
+            }
             
         }catch(PDOException $e){
             echo "<script>alert(\"".$e->getMessage()."\")</script>";
@@ -58,7 +59,6 @@ else
 {
     // redirection en absence des champs
     header('Location:login.php');
-    $error = "mot de passe ou email incorrect!";
     exit();
 }
 ?>

@@ -36,7 +36,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
         exit();
     } else {
         // En cas d'erreur, redirige vers la page d'inscription ou affiche un message
-        header("Location: ../register.php?error=1");
+        header("Location: ../register.php?cet utilisateur n'existe pas");
         exit();
     }
 }else {

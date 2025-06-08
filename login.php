@@ -1,9 +1,12 @@
-<?php if (isset($_GET['error'])): ?>
+<?php
+//Affichage des messages d'erreurs si les identifiants sont incorrects
+if (isset($_GET['error'])): ?>
     <small class="alert alert-danger text-center">
         Email ou mot de passe incorrect.
     </small>
 <?php endif; 
 // login.php : Page de connexion Bootstrap moderne et responsive
+// Cette pae permet aux utilisateur de ce connecter à leurs compte
 ?>
 <!DOCTYPE html>
 <html lang="fr">

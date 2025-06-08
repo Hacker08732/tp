@@ -1,4 +1,5 @@
 <?php
+// cette page permet la modification des données d'un utilisateur existant
 session_start();
 if (!isset($_SESSION['auth']) || $_SESSION['auth']!==true) {
     header('Location: ../login.php');
@@ -21,6 +22,7 @@ if( isset($_GET["id"]) )
         $user = $req->fetch(PDO::FETCH_ASSOC); 
     }
     else{
+        header("Location: update.php");
         echo "Erreur!";
     }
 }else{
@@ -34,17 +36,20 @@ if( isset( $_POST["id"] ) && isset( $_POST["nom"] ) && isset( $_POST["prenom"] )
     $nom = strip_tags($_POST["nom"]);
     $prenom = strip_tags($_POST["prenom"]);
     $email = strip_tags($_POST["email"]);
-
+        
+        //Mise a jour des information dans la base de donnée
         $req = $pdo->prepare("UPDATE users SET nom=:nom, prenom=:prenom, email=:email WHERE id=:id");
-
         $stmt = $req->execute(["id"=> $id,"nom"=> $nom, "prenom" => $prenom, "email"=>$email]);
 
         if($stmt)
         {
             $success="Votre modification a ete bien effectue!";
             header("Location: ../users.php");
+            echo $success;
         }else{
+            header("Location: ../users.php");
             $error="Une erreur lors de la modification de vos donnees!";
+            echo $error;
         }
 }
 ?>

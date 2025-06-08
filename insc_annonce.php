@@ -1,6 +1,8 @@
 <?php
+//Vérification de l'authentification
 session_start();
 if (!isset($_SESSION['auth']) || $_SESSION['auth']!==true) {
+    //redirection vers la page login si l'authentification échoue
     header('Location: login.php');
     exit();
 }

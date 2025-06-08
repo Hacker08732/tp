@@ -1,12 +1,15 @@
 <?php
+//Démarrage de la session pour gérer l'authentification
 session_start();
+//Vérification si l'utilisateur est connecté
 if (!isset($_SESSION['auth']) || $_SESSION['auth']!==true) {
+    //redirection vers la page login s'il n'est pas connecté
     header('Location: login.php');
-    exit();
+    exit();//Arêt de l'exécution du script
 }
 include("includes/head.php"); 
 include('includes/database.php');
-
+//Récupération de tout les utilisateurs depuis la base de données 
 $req = $pdo->query("SELECT * FROM users");
 $users = $req->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -61,17 +64,18 @@ $users = $req->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-<script>
+<script>/*
 const btn_modif = document.querySelectorAll(".btn_modif");
 const btn_supp = document.querySelectorAll(".btn_supp");
 const mon_div = document.getElementById("mon_div");
+
 
 btn_modif.forEach(btn => {
     btn.addEventListener("click", function(){
         mon_div.textContent = "Bien";
     });
 });
-    /*<form method="post" action="">
+    <form method="post" action="">
             <div class="mb-3">
                 <label for="nom" class="form-label">Nom</label>
                 <div class="input-group">

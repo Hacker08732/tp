@@ -1,5 +1,7 @@
 <?php 
+//cette page traite les données de l'inscription
 include('database.php');
+//démarrage de la session
 session_start();
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
    $nom = strip_tags(($_POST['nom']));

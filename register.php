@@ -1,6 +1,7 @@
 
 <?php
  // register.php : Page d'inscription Bootstrap moderne et responsive
+ //Cette page permet aux utilisateurs de créer un nouveau compte
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -113,6 +114,7 @@
     </div>
    
 <script>
+    //Récupération de tout les éléments du DOM()
 const form = document.getElementById("monForm");
 const nom = document.getElementById("nom");
 const prenom = document.getElementById("prenom");
@@ -121,24 +123,32 @@ const infoNom = nom.parentElement.parentElement.querySelector("small");
 const infoPrenom = prenom.parentElement.parentElement.querySelector("small");
 const infoEmail = email.parentElement.parentElement.querySelector("small");
 
+//Ecouteur d'évernement pour la soumission du formulaire
 form.addEventListener("submit", function(e){
     let valid = true;
+    //Réénitialisation des messages d'erreurs
     infoNom.textContent = "";
     infoPrenom.textContent = "";
     infoEmail.textContent = "";
-
+    
+    //Le nom ne doit pas contenir de chiffre
     if(/\d/.test(nom.value)){
         infoNom.textContent = "Le nom ne doit pas contenir de chiffre";
         valid = false;
     }
+    
+    //Le prenom ne doit pas contenir de chiffre
     if(/\d/.test(prenom.value)){
         infoPrenom.textContent = "Le prénom ne doit pas contenir de chiffre";
         valid = false;
     }
+
+    //L'email doit respecter son format
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
         infoEmail.textContent = "Adresse email invalide";
         valid = false;
     }
+    //Enpêche l'envoi du formulaire si les validations précédentes échouent
     if(!valid) e.preventDefault();
 });
 

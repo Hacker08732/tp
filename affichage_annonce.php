@@ -1,4 +1,6 @@
 <?php
+// Cette page permet d'afficher les annonces
+//démarrage de la session
 session_start();
 if (!isset($_SESSION['auth']) || $_SESSION['auth']!==true) {
     header('Location: login.php');
@@ -7,6 +9,7 @@ if (!isset($_SESSION['auth']) || $_SESSION['auth']!==true) {
 include("includes/head.php"); 
 include('includes/database.php');
 
+//récupération des annonces depuis la base de donnée
 $req = $pdo->query("SELECT * FROM annonces");
 $images = $req->fetchAll(PDO::FETCH_ASSOC);
 ?>

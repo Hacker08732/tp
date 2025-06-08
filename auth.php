@@ -1,15 +1,15 @@
 <?php 
 session_start();
-//include("includes/head.php");
+
 include("includes/database.php");
 
 //message d'erreur a mettre si email ou mot de passe n'est pas correct
 $error = "mot de passe ou email incorrect!";
 
-//echo("hey");  operation de test
-
+//Vérifier si l'email et le mot de passe ont été bien envoyé via le formulaire
 if( isset($_POST['email']) && isset($_POST['password'] ) )
 {
+    //Vérifier si les champs ne sont pas vides
     if( !empty($_POST['email']) && !empty($_POST['password']) )
     {
         $email = strip_tags($_POST['email']);
@@ -21,15 +21,16 @@ if( isset($_POST['email']) && isset($_POST['password'] ) )
             $req->execute(['email' => $email]);
             $user = $req->fetch(PDO::FETCH_ASSOC);
                        
-            //si user n'existe pas
+            //vérifie l'existence de l'utilisateur
             if( !$user )
             {
                 header('Location:login.php?error=');
                 exit();
             }
-                //user existe - ok, verifions mot de passe :
+                //verifie si le mot de passe enter dans le formulaire corresponds à celui de la base de donnée
                 if( password_verify( $password, $user['mot_de_passe']) )
                 {
+                    //création de la session utilisateur
                     $_SESSION['user'] = [
                         'id' => $user['id'],
                         'nom' => $user['nom'],
@@ -37,9 +38,11 @@ if( isset($_POST['email']) && isset($_POST['password'] ) )
                         'email' => $user['email']
                     ];
                     $_SESSION['auth'] = true;
+                    //si le mot de passe est correct, l'utilisateur est rediriger vers l'index 
                     header('Location:index.php');
                     exit();
                 } else {
+                    //sinon l'utilisateur est rediriger vers le login  
                  header('Location:login.php?error=$error');
                     exit();
                 }
@@ -53,6 +56,7 @@ if( isset($_POST['email']) && isset($_POST['password'] ) )
 }
 else
 {
+    // redirection en absence des champs
     header('Location:login.php');
     $error = "mot de passe ou email incorrect!";
     exit();

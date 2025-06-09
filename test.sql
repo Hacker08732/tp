@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 08 juin 2025 à 23:43
+-- Généré le : lun. 09 juin 2025 à 03:12
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -54,7 +54,7 @@ CREATE TABLE `users` (
   `nom` varchar(200) NOT NULL,
   `prenom` varchar(200) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `mot_de_passe` varchar(40) NOT NULL
+  `mot_de_passe` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -62,23 +62,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `email`, `mot_de_passe`) VALUES
-(1, 'SAVI', 'yezid', 'yesidsavi@gmail.com', '$2y$10$3lMCYcHrJbYKfz/Pr4UltO0U0sfLksK1B'),
-(3, 'DJOSS', 'Dossa', 'dossadj@gmail.com', '$2y$10$Hva0YpNb1qHW8Mz7DHjHhOMhYNHLFLsKa'),
-(5, 'Mariella', 'BOUROU', 'mariellebourou@gmail.com', '$2y$10$Y/XhJgqoTC.2EzRZ5u/L2e3dp33U.frQU'),
-(6, 'DOSSOU-YOVO', 'Viviane', 'vivianedossouyovo@gmail.com', '$2y$10$smNJiNmVMem63mRGbsrpm.5JroWjyqO9A'),
-(7, 'KAKPO', 'Lucian', 'luciankakpo@gmail.com', '$2y$10$7MYITvcVz6fGjJIUaaMhneNat2pTdxo30'),
-(9, 'BANKOLE', 'Quian', 'quianbankole@gmail.com', '$2y$10$m6bDB9tg0g04pMYV.EDorOzGvtx6SOOS7'),
-(10, 'BADAROU', 'Julien', 'julienbadarou@gmail.com', '$2y$10$nrUWnNbKRdjsbN1uOj2fEOqTuiaMuosy/'),
-(13, 'DOSSOU-YOVO23566', 'Lucian66787875', '7vo@gmail.com', '$2y$10$n43HRyMS/WRLJiiGdsWOVuAn6Fv3cuP4v'),
-(14, 'DOSSOU-YOVO', 'Lucian', '3@gmail.com', '$2y$10$ZkULaCDnyIAIYiMjSSpEbOh1WuUUA8Jyj'),
-(15, 'BANKOLE', 'Lucian', 'lucianbankole@gmail.com', '$2y$10$k6kR.JIuR.r0pRyQ9rh1X.PpLbpN2Acxo'),
-(16, 'SAMORI', 'Jenny', 'jennysamori@gmail.com', '$2y$10$97PHl1PdAEc6U9u5ZNMBH.rwKXp2CvHne'),
-(18, 'ALAO', 'Miriam', 'miriamalao@gmail.com', '$2y$10$OzQLKfveSN9uGs1awcdlnu2jjWgZ1NWuy'),
-(19, 'SAVI', 'Mohamed', 'mohamedsavi@gmail.com', '$2y$10$vbsdC33Cc46qp8ir/A8dKuAvzHCFUFUM0'),
-(20, 'MALADE', 'Mamadou', 'mamadoumalade@gmail.com', '$2y$10$lNw8tGB.e5jOMcIl2PM/s.yLtXmONwNbb'),
-(21, 'SAMORI', 'Tori', 'torisamori@gmail.com', '$2y$10$egiM/MlbSlAz1qtEP9XP9.Hb0xoHsOGAV'),
-(22, 'TOGBE', 'Bio', 'biotogbe@gmail.com', '$2y$10$oK7H/ajdcjAK5suo/qBZIOumfV.GAYMRc'),
-(23, 'GANDAHO', 'Marie', 'mariegandaho@gmail.com', '$2y$10$21LVOWyZMGuL8B3Ey17snu4C73BR3C7tJ');
+(26, 'Moreau', 'Julien', 'julienmoreau@gmail.com', '$2y$10$m5ocHE27NEr.cFme0Qs5AON0TIJduifp2Nm/ByUDhiYeEZ5hPqxVa'),
+(27, 'Bernard', 'Sophie', 'sophiebernard@gmail.com', '$2y$10$Xc1kfyI4Q9bcHmptH6AaneBVN8rG6m11vzbTQ3/SvixWTT/hxWDtO'),
+(28, 'Muller', 'Sarah', 'sarahmuller@gmail.com', '$2y$10$KXM9/eptJp6el2ex4MTaiup5magsWjDJ86Gj9emKxAJt.V8BC5LO6');
 
 --
 -- Index pour les tables déchargées
@@ -110,7 +96,7 @@ ALTER TABLE `annonces`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

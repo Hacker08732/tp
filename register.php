@@ -105,6 +105,9 @@
                     <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirmez le mot de passe" required>
                 </div>
             </div>
+            <div class="mb-3 d-flex justify-content-between align-items-center" id="div_erreur">
+                <span class="alert alert-danger small"><?php if (isset($_GET['error'])){echo"Email ou mot de passe invalide";}?></span>
+            </div> 
             <button type="submit" class="btn btn-primary w-100 mb-2" id="btn_ins">S'inscrire</button>
         </form>
         <div class="text-center mt-3">
@@ -122,10 +125,19 @@ const email = document.getElementById("email");
 const infoNom = nom.parentElement.parentElement.querySelector("small");
 const infoPrenom = prenom.parentElement.parentElement.querySelector("small");
 const infoEmail = email.parentElement.parentElement.querySelector("small");
+const div_erreur = document.getElementById("div_erreur");
+const span = div_erreur.querySelector("span");
+const mot_de_passe = document.getElementById("mot_de_passe");
+const password_confirm = document.getElementById("password_confirm");
+
 
 //Ecouteur d'évernement pour la soumission du formulaire
 form.addEventListener("submit", function(e){
     let valid = true;
+     if( mot_de_passe.value !== password_confirm.value){
+        span.textContent = " mot de passe incorrect. Réessayer";
+         valid = false;
+    }
     //Réénitialisation des messages d'erreurs
     infoNom.textContent = "";
     infoPrenom.textContent = "";
@@ -152,46 +164,6 @@ form.addEventListener("submit", function(e){
     if(!valid) e.preventDefault();
 });
 
-    /*let formulaire = document.getElementById(divForm); 
-    formulaire.addEventListener()
-    formulaire.innerHTML = `<form method="post" action="includes/register_action.php">
-            <div class="mb-3">
-                <label for="nom" class="form-label">Nom</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom" required>
-                </div>
-            </div>
-             <div class="mb-3">
-                <label for="prenom" class="form-label">Prénom</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre prénom" required>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Adresse e-mail</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Votre e-mail" required>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="mot_de_passe" class="form-label">Mot de passe</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                    <input type="password" class="form-control" id="mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="password_confirm" class="form-label">Confirmer le mot de passe</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                    <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirmez le mot de passe" required>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary w-100 mb-2">S'inscrire</button>
-        </form> `;*/
   </script>
 </body>
 </html>

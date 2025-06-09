@@ -37,7 +37,7 @@
             </li>
             <li class="nav-item">
                 <a href="affichage_annonce.php" class="nav-link <?php echo ($currentPage === 'affichage_annonce.php') ? 'active' : ''; ?>">
-                    <i class="bi bi-bar-chart"></i>
+                    <i class="bi bi-image"></i>
                     <span>Annonces</span>
                 </a>
             </li>
@@ -47,13 +47,14 @@
                     <span>Utilisateurs</span>
                 </a>
             </li>
-            <li class="nav-item">
+            
+            <!--<li class="nav-item">
                 <a href="parametres.php"
                     class="nav-link <?php echo ($currentPage === 'parametres.php') ? 'active' : ''; ?>">
                     <i class="bi bi-gear"></i>
                     <span>Paramètres</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
 
     </nav>

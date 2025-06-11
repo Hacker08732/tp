@@ -13,7 +13,7 @@ if (!isset($_SESSION['auth']) || $_SESSION['auth']!==true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription - MonApp</title>
+    <title>Inscription - Gestionnaire d'annonces</title>
     <!-- Bootstrap 5 -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!-- Bootstrap Icons -->

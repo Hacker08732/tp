@@ -5,7 +5,8 @@ include("includes/head.php"); ?>
                     <div class="col-md-4">
                         <div class="card p-4 text-center">
                             <a href="users.php" class="nav-link <?php echo ($currentPage === 'users.php') ? 'active' : ''; ?>">
-                            <i class="bi bi-people display-5 text-primary mb-2"></i>
+                                <i class="bi bi-people display-5 text-primary mb-2"></i>
+                            </a>
                             <h5>Utilisateurs</h5>
                             <p class="mb-0">Gérez vos utilisateurs facilement.</p>
                         </div>
@@ -13,7 +14,8 @@ include("includes/head.php"); ?>
                     <div class="col-md-4">
                         <div class="card p-4 text-center">
                             <a href="affichage_annonce.php" class="nav-link <?php echo ($currentPage === 'affichage_annonce.php') ? 'active' : ''; ?>">
-                            <i class="bi bi-image display-5 text-success mb-2"></i>
+                               <i class="bi bi-image display-5 text-success mb-2"></i> 
+                            </a>
                             <h5>Annonces</h5>
                             <p class="mb-0">Gérer vos annonces.</p>
                         </div>

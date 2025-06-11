@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion - MonApp</title>
+    <title>Connexion - Gestionnaire d'annonces</title>
     <!-- Bootstrap 5 -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
